@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres:15
+    container_name: my-doctor-db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=my_doctor
+    volumes:
+      - ./container-volumes/postgres-data:/var/lib/postgresql/data
