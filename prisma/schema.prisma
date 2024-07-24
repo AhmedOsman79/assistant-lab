@@ -1,0 +1,234 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ContactStatus {
+  normal
+  emergency
+  hot_line
+}
+
+enum Locales {
+  ar
+  en
+}
+
+enum MedicineType {
+  tablets
+  capsules
+  liquids
+  injection
+  drops
+  effervescent
+  inhalers
+  suppositories
+  topical
+  vaginal_douches
+  enema
+}
+
+enum MedicineSubType {
+  // tablets
+  normal_tablets
+  lozenges_tablets
+  sublingual_tablets
+
+  // liquids
+  syrups
+  suspension
+  gargle
+  oral_ampoules
+
+  // Injection
+  IM
+  IV
+  SC
+  ID
+
+  // Drops
+  eye_drops
+  oral_drops
+  ear_drops
+  nasal_drops
+  nasal_spray
+
+  // Suppositories
+  rectal
+  vaginal
+
+  // Topical
+  creams
+  ointments
+  lotions
+  local_sprays
+  dermal_patches
+}
+
+model User {
+  id String @id @default(uuid())
+
+  name String? // the ? here is to not break the db as there are some existing users without name , will add validation with joi to make it required
+
+  email String @unique
+
+  phone String @unique
+
+  verified Boolean @default(false)
+
+  password String
+
+  image String?
+
+  isAdmin Boolean @default(false)
+
+  contacts       Contacts[]
+  doctors        Doctor[]
+  diseases       Disease[]
+  articles       Articles[]
+  medicines      Medicines[]
+  medicineTakers MedicineTakerOnViewer[] @relation("medicineTaker") // to get the people that I'm watching their medicines
+  viewers        MedicineTakerOnViewer[] @relation("viewer") // to get the people that are watching my medicines
+}
+
+model MedicineTakerOnViewer {
+  medicineTaker   User     @relation(fields: [medicineTakerId], references: [id], name: "medicineTaker")
+  viewer          User     @relation(fields: [viewerId], references: [id], name: "viewer")
+  medicineTakerId String
+  viewerId        String
+  assignedAt      DateTime @default(now())
+
+  @@id([viewerId, medicineTakerId])
+}
+
+model Verified_Codes {
+  id    String @id @default(uuid())
+  code  String
+  email String
+}
+
+model Doctor {
+  id String @id @default(uuid())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  name  String
+  phone String
+
+  image String?
+
+  email String?
+
+  availability String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@unique([phone, userId], name: "doctorPhoneUniqueIdentifier")
+}
+
+model Contacts {
+  id String @id @default(uuid())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  name  String
+  phone String
+
+  status ContactStatus
+
+  image String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@unique([phone, userId], name: "assistantPhoneUniqueIdentifier")
+}
+
+model Disease {
+  id String @id @default(uuid())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  title String
+
+  since DateTime @default(now()) @db.Date
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  // NOTE: the order of title , userIds does matter
+  // because when handlening the PRISMA_INSERT_UNIQUE error
+  // we are showing the message like : this title already exist 
+  // but if the userId is the first one , it will be : this userId already exist which doesn't make sense
+  @@unique([title, userId], name: "titleUniqueIdentifier")
+}
+
+model Articles {
+  id String @id @default(uuid())
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  image String?
+
+  isHot Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  articleTranslations ArticleTranslations[]
+}
+
+model ArticleTranslations {
+  id String @id @default(uuid())
+
+  article   Articles @relation(fields: [articleId], references: [id], onDelete: Cascade) // remove the ArticleTranslations when the article is deleted
+  articleId String
+
+  langCode Locales
+
+  title String
+
+  content String
+}
+
+model Medicines {
+  id String @id @default(uuid())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  name String
+
+  image String?
+
+  type MedicineType
+
+  subType MedicineSubType?
+
+  dosage Float
+
+  dosagePerDay String
+
+  days Float // This column represents the number of days the user will take the medicine
+
+  startDatetime DateTime
+
+  gapInDays Int @default(0) @db.SmallInt
+
+  dosageSchedule Json @default("{}") // we changed this to be the dosages that have been taken by the user
+
+  pauseMap Json @default("{}")
+
+  // TODO: add createdAt and updatedAt
+  @@unique([name, userId], name: "nameUniqueIdentifier")
+}

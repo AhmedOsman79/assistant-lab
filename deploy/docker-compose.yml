@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  tabibi-server:
+    image: mohammed180/tabibi-server:latest
+    container_name: tabibi-server
+    ports:
+      - '80:3000'
+    environment:
+      # TODO: configure rest of the mail vars here 
+      - MAIL_PASSWORD=mydoctorMYDOCTOR
+      - CLOUDINARY_NAME=$CLOUDINARY_NAME
+      - CLOUDINARY_API_KEY=$CLOUDINARY_API_KEY
+      - CLOUDINARY_API_SECRET=$CLOUDINARY_API_SECRET
+      - SENTRY_DNS=$SENTRY_DNS
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 10m
+        max-file: "3"
+    volumes:
+      - "./stacks:/tabibi-data"
