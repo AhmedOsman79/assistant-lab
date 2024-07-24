@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="telephone=no" name="format-detection" />
+  <title></title>
+  <style type="text/css" data-premailer="ignore">
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700);
+  </style>
+  <style data-premailer="ignore">
+    @media screen and (max-width: 600px) {
+      u+.body {
+        width: 100vw !important;
+      }
+    }
+
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+  </style>
+</head>
+
+<body class="bg-body">
+  <table class="main bg-body" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center" valign="top">
+        <table class="wrap" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="p-sm">
+              <div class="main-content">
+                <div style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#434c5e;font-weight:300"
+                  bgcolor="#ffffff">
+                  <table width="100%" cellpadding="0" cellspacing="0" style="width:100%;height:100%" bgcolor="#ffffff">
+                    <tbody>
+                      <tr>
+                        <td align="center">
+                          <table cellpadding="0" cellspacing="0" style="width:540px" bgcolor="#ffffff">
+                            <tbody>
+                              <tr>
+                                <td style="line-height:1px;font-size:1px;height:2px" bgcolor="{{color1}}">.</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table width="100%" cellpadding="0" cellspacing="0"
+                                    style="border-color:#ebecee;border-style:solid;border-width:0 1px 1px">
+                                    <tbody>
+                                      <tr>
+                                        <td align="" style="font-size:14px;padding:0 60px 30px">
+                                          <table width="100%" cellpadding="0" cellspacing="0"
+                                            style="width:100%;font-weight:100;margin:0;padding:0">
+                                            <tbody>
+                                              <tr>
+                                                <td><br>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td width="100%" cellpadding="0" cellspacing="0"
+                                                  style="width:100%;margin:0;padding:0" bgcolor="#FFFFFF">
+                                                  <table align="center" width="570" cellpadding="0" cellspacing="0"
+                                                    style="width:532px;margin:0 auto 18px;padding:0;border:0 solid #d0d5df"
+                                                    bgcolor="#FFFFFF">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td style="padding:0">
+                                                          <h1
+                                                            style="font-weight:600;margin:0 0 40px;padding:0;font-size:28px;line-height:36px;color:#313745;font-family:-apple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Roboto,Helvetica Neue,sans-serif" align="left"><strong style="font-weight:500;color=#0140B1;">Welcome {{username}},</strong>
+                                                          </h1>
+                                                          <span style="font-weight:600;margin:0 0 40px;padding:10px;font-size:24px;line-height:36px;color:#313745;font-family:-apple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Roboto,Helvetica Neue,sans-serif" align="left">Your verification code</strong>
+                                                        </span>
+                                                          <table width="100%" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                              <tr>
+                                                                <td
+                                                                  style="border-radius:4px;padding:8px;border:1px solid #ebecee">
+                                                                  <table width="100%" cellpadding="0" cellspacing="0">
+                                                                    <tbody>
+                                                                      <tr>
+                                                                        <td bgcolor="#fff">
+                                                                          <table width="100%" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            style="font-family:-apple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Roboto,Helvetica Neue,sans-serif;font-weight:400;padding:24px 32px 32px 16px;border:0">
+                                                                            <tbody>
+                                                                              <tr>
+                                                                                <td width="100%"
+                                                                                  style="padding-top:8px">
+                                                                                  <span style="display:block;font-size:40px;text-align:center;">{{code}}</span>
+                                                                                </td>
+                                                                              </tr>
+                                                                            </tbody>
+                                                                          </table>
+                                                                        </td>
+                                                                      </tr>
+                                                                    </tbody>
+                                                                  </table>
+                                                                </td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                          <table align="center" width="100%" cellpadding="0"
+                                                            cellspacing="0">
+                                                            <tbody>
+                                                              <tr>
+                                                                <td align="center" style="padding:0">
+                                                                </td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table cellpadding="0" cellspacing="0" style="width:540px;margin-top:24px">
+                            <tbody>
+                              <tr>
+                                <td align="center">
+                                  <h2
+                                    style="font-weight:500;margin:0;padding:0;font-size:12px;line-height:1.5em;text-transform:uppercase;letter-spacing:.02em;color:#313745">
+                                    Powered by {{appName}}
+                                  </h2>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
